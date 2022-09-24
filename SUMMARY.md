@@ -28,5 +28,4 @@
   * [霍炬直播文字稿精校版 2021-12-02](she-qu-nei-rong/huo-ju-zhi-bo-wen-zi-gao-jing-xiao-ban-20211202.md)
   * [怎样贡献社区内容？](she-qu-nei-rong/zen-yang-gong-xian-she-qu-nei-rong.md)
 * [我是开发者](wo-shi-kai-fa-zhe.md)
-* [🌐 多语言支持/Language](duo-yu-yan-zhi-chi-language/README.md)
-  * [怎样贡献语言](duo-yu-yan-zhi-chi-language/zen-yang-gong-xian-yu-yan.md)
+* [🌐 多语言支持/Language](duo-yu-yan-zhi-chi-language.md)
