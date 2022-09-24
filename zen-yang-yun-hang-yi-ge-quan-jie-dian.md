@@ -1,8 +1,16 @@
 # 怎样运行一个全节点
 
 {% hint style="info" %}
-本文主要针对
+本文旨在指引在 Linux 服务器上使用 Quorum 运行全节点的用户。&#x20;
 {% endhint %}
+
+
+
+远程环境：Unbuntu 20.04 + Quorum
+
+本地环境：Windows 10 + Rum App V3.3.18
+
+
 
 #### 0. 什么是全节点
 
