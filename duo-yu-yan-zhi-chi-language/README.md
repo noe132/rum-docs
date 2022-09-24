@@ -14,4 +14,4 @@ Please Contribute More Languges through our github repository:
 
 [https://github.com/hawken-im/rum-docs](https://github.com/hawken-im/rum-docs)
 
-<figure><img src=".gitbook/assets/image (2).png" alt=""><figcaption><p>Generate by stable diffusion served from virushuo</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption><p>Generate by stable diffusion served from virushuo</p></figcaption></figure>

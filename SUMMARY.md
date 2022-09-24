@@ -26,5 +26,7 @@
   * [在腾讯云运行 RUM public 节点](she-qu-nei-rong/zai-teng-xun-yun-yun-hang-rum-public-jie-dian.md)
   * [RUM 霍炬直播文字整理版 06/25](she-qu-nei-rong/rum-huo-ju-zhi-bo-wen-zi-zheng-li-ban-0625.md)
   * [霍炬直播文字稿精校版 2021-12-02](she-qu-nei-rong/huo-ju-zhi-bo-wen-zi-gao-jing-xiao-ban-20211202.md)
+  * [怎样贡献社区内容？](she-qu-nei-rong/zen-yang-gong-xian-she-qu-nei-rong.md)
 * [我是开发者](wo-shi-kai-fa-zhe.md)
-* [🌐 多语言支持/Language](duo-yu-yan-zhi-chi-language.md)
+* [🌐 多语言支持/Language](duo-yu-yan-zhi-chi-language/README.md)
+  * [怎样贡献语言](duo-yu-yan-zhi-chi-language/zen-yang-gong-xian-yu-yan.md)
