@@ -4,13 +4,15 @@
 本文旨在指引在 Linux 服务器上使用 Quorum 运行全节点的用户。&#x20;
 {% endhint %}
 
+{% hint style="info" %}
+如果您的宽带运营商正常提供上传带宽，或者您能自己配置 NAT，则可以直接在本地运行全节点客户端 Rum APP，和本文档要达到的目的一致。
+{% endhint %}
 
 
-远程环境：Unbuntu 20.04 + Quorum
 
-本地环境：Windows 10 + Rum App V3.3.18
-
-
+> 远程环境：Unbuntu 20.04 + Quorum
+>
+> 本地环境：Windows 10 + Rum App V3.3.18
 
 #### 0. 什么是全节点
 
@@ -33,6 +35,19 @@ Rum Network 的内容由群组（Groups，应用层面称为种子网络，SeedN
 
 #### 3. 怎样运行全节点
 
+#### 环境配置：
+
+1. 将 Quorum 克隆到服务器
+
+```
+git clone git@github.com:rumsystem/quorum.git
+```
+
 
 
 [https://github.com/rumsystem/quorum](https://github.com/rumsystem/quorum)
+
+1.  安装 Go 语言运行环境
+
+    按照 Go 语言官方文档操作即可：[https://go.dev/doc/install](https://go.dev/doc/install)
+
