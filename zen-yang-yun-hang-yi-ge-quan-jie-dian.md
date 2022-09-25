@@ -103,3 +103,26 @@ git clone git@github.com:rumsystem/quorum.git
 
 首先请[下载 Rum App](ying-yong-xia-zai.md#rum-app) 并安装在本地电脑。
 
+运行 Rum App，在启动界面选择“外部节点”。
+
+![](<.gitbook/assets/Screenshot (49).png>)
+
+&#x20;根据提示选择一个本地文件夹用于储存本地数据之后，接下来是按要求填写参数：
+
+![](<.gitbook/assets/Screenshot (50).png>)
+
+第一个空格填入 `http://{服务器IP地址}:{apiPortNumber}`
+
+第二个空格填入第二步取得的 `jwt token`
+
+点击“确定”按钮，等待一段时间就可以成功通过本地 Rum App 远程连接外部全节点了。
+
+#### 结语
+
+如果出现问题可以尝试：
+
+1. 用 `./quorum -help` 来查看命令行有没有错误。
+2. 注意防火墙是否已经解除对各端口的屏蔽。
+3. 如果反复尝试失败请打开 Rum App 的调试功能检查问题所在。
+
+[本文档是否有帮助？请到 GitHub 提交 issue 或 pull request，感谢您的帮助。](zen-yang-yun-hang-yi-ge-quan-jie-dian.md)
