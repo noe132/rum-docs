@@ -33,21 +33,73 @@ Rum Network 的内容由群组（Groups，应用层面称为种子网络，SeedN
 1. 提供了网络资源的节点会得到经济系统的补助（经济系统建设中）。
 2. 由节点创建的种子网络，该节点拥有该种子网络的管理员权限。
 
-#### 3. 怎样运行全节点
+#### 前提条件
 
-#### 环境配置：
-
-1. 将 Quorum 克隆到服务器
+* 将 Quorum 克隆到服务器
 
 ```
 git clone git@github.com:rumsystem/quorum.git
 ```
 
+{% hint style="info" %}
+仓库地址：[https://github.com/rumsystem/quorum](https://github.com/rumsystem/quorum)
+{% endhint %}
 
+* 安装 Go 语言运行环境
 
-[https://github.com/rumsystem/quorum](https://github.com/rumsystem/quorum)
+按照 Go 语言官方文档操作即可：[https://go.dev/doc/install](https://go.dev/doc/install)
 
-1.  安装 Go 语言运行环境
+* Build Quorum 二进制文件
 
-    按照 Go 语言官方文档操作即可：[https://go.dev/doc/install](https://go.dev/doc/install)
+执行命令：
+
+`make linux` 或 `make buildall`
+
+成功 Build 的二进制文件位于`dist`文件夹中。
+
+也可以 Build Docker 镜像文件：
+
+&#x20;`sudo docker build -t quorum`
+
+#### Step 1 - 运行 Quorum
+
+在本步骤，我们将在服务器上运行 Quorum 服务。
+
+在你的 `quorum` 二进制文件所在的根目录执行以下命令：
+
+{% code overflow="wrap" %}
+```shell
+./quorum fullnode --listen /ip4/0.0.0.0/tcp/{portNumber} --listen /ip4/0.0.0.0/tcp/{websocketPortNumber}/ws --apiport {apiPortNumber} --peer /ip4/94.23.17.189/tcp/10666/p2p/16Uiu2HAmGTcDnhj3KVQUwVx8SGLyKBXQwfAxNayJdEwfsnUYKK4u --configdir peerConfig --datadir peerData --keystoredir keystore --debug=false
+```
+{% endcode %}
+
+将命令中的：`{portNumber}，{websocketPortNumber}，{apiPortNumber}，`替换成不常用的端口号。
+
+如果服务器有防火墙，请记得将以上端口对外开放。
+
+初次运行 `quorum` 会请你生成一个密码，请注意妥善保管。再次运行时会用到。
+
+#### Step 2 - 获取 jwt token
+
+在本步骤，我们把即将用来运行 Rum App 的参数保存到本地。
+
+如果你在上一步骤将 `quorum` 运行于 `tmux` 或者 `systemd` 系统服务中，你可以直接到 `quorum` 所在根目录继续执行命令获取 `jwt token`，否则你可能需要停掉正在运行的 `quorum` 服务。
+
+在你的 `quorum` 二进制文件所在的根目录执行以下命令：
+
+{% code overflow="wrap" %}
+```shell
+./quorum jwt create --configdir {quorumdir}/peerConfig chain --name node-all-groups
+```
+{% endcode %}
+
+将命令中的`{quorumdir}` 替换成 `quorum` 所在的目录。
+
+成功执行命令后，将 `token:` 后面的文本复制并保存到本地电脑，我们将在下一步用到它。
+
+#### Step 3 - 用 Rum App 远程连接 Quorum 服务
+
+在本步骤，我们将通过本地 Rum App 连接远程的 Quorum 服务，对节点进行管理。
+
+首先请[下载 Rum App](ying-yong-xia-zai.md#rum-app) 并安装在本地电脑。
 
