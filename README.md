@@ -26,7 +26,7 @@ Rum 是搭建在 Rum System 提供的去中心网络上的应用，Rum 官方团
 
 #### Rum System：
 
-Rum System 由 Quoum 和 Rum Network 组成。到官方主页 [rumsystem.net](http://rumsystem.net) 了解更多。&#x20;
+Rum System 由 Quorum 和 Rum Network 组成。到官方主页 [rumsystem.net](http://rumsystem.net) 了解更多。&#x20;
 
 
 
