@@ -4,7 +4,7 @@ This Rum Guide is available in the languages below:
 
 用户指南有以下语言版本：
 
-#### [English](https://app.gitbook.com/o/9SHKDQEDtnG5hKH7k38f/s/6EQV9f4Sw1meDmmcnZow/)
+#### [English](broken-reference)
 
 #### [简体中文](https://app.gitbook.com/o/9SHKDQEDtnG5hKH7k38f/s/216qTN0ijD75fWVlhcBs/)
 
@@ -16,7 +16,7 @@ English Version: [https://github.com/hawken-im/rumdocs](https://github.com/hawke
 
 Chinese Simplified: [https://github.com/hawken-im/rum-docs](https://github.com/hawken-im/rum-docs)
 
-<figure><img src=".gitbook/assets/image (2).png" alt=""><figcaption><p>Generate by stable diffusion served from virushuo</p></figcaption></figure>
+<figure><img src=".gitbook/assets/image (2) (1).png" alt=""><figcaption><p>Generate by stable diffusion served from virushuo</p></figcaption></figure>
 
 Your contributions to additional language support are welcomed. If you have written Rum documentation in other languages, please update this page with a link through a Pull Request:
 

@@ -21,6 +21,7 @@
   * [如何让自己的节点状态从 Private 变成 Public？](faq/ru-he-rang-zi-ji-de-jie-dian-zhuang-tai-cong-private-bian-cheng-public.md)
   * [当前产品的开发进度？](faq/dang-qian-chan-pin-de-kai-fa-jin-du.md)
   * [如何创建所有人都可以访问的公开群组？](faq/ru-he-chuang-jian-suo-you-ren-du-ke-yi-fang-wen-de-gong-kai-qun-zu.md)
+  * [如何管理种子网络的用户权限](faq/ru-he-guan-li-zhong-zi-wang-luo-de-yong-hu-quan-xian.md)
 * [社区内容](she-qu-nei-rong/README.md)
   * [种子推荐](she-qu-nei-rong/zhong-zi-tui-jian.md)
   * [在腾讯云运行 RUM public 节点](she-qu-nei-rong/zai-teng-xun-yun-yun-hang-rum-public-jie-dian.md)
