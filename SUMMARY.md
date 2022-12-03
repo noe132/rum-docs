@@ -4,6 +4,7 @@
 * [应用下载](ying-yong-xia-zai.md)
 * [种子网络推荐](zhong-zi-wang-luo-tui-jian.md)
 * [怎样运行一个全节点](zen-yang-yun-hang-yi-ge-quan-jie-dian.md)
+* [怎样创建 Port 论坛](zen-yang-chuang-jian-port-lun-tan.md)
 * [FAQ](faq/README.md)
   * [什么是 Rum？](faq/shi-mo-shi-rum.md)
   * [什么是节点？](faq/shi-mo-shi-jie-dian.md)
