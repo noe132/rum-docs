@@ -6,7 +6,7 @@
 
 用户 ID 的获取方法是：
 
-1. 找到该用户发布的内容，点击该条内容的菜单项目，进入详情界面。![](../.gitbook/assets/image.png)
+1. 找到该用户发布的内容，点击该条内容的菜单项目，进入详情界面。![](<../.gitbook/assets/image (3).png>)
 2. 在详情界面找到“发送人”，点击即可将用户 ID 复制进入剪切板。
 
 <img src="../.gitbook/assets/image (2).png" alt="" data-size="original">

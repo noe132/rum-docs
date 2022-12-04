@@ -44,25 +44,25 @@ Rum System 由 Quorum 和 Rum Network 组成。到官方主页 [rumsystem.net](h
 {% tab title="手机用户" %}
 下载移动轻节点客户端：
 
-安卓用户点击下载安装包
+[安卓用户点击下载安装包](https://static-assets.xue.cn/rum\_light/rum\_light\_1.0.2.apk)
 
 
 
 iPhone 用户需要先安装 TestFlight：
 
-点击此链接打开安装页面
+[点击此链接打开安装页面](https://rumsystem.net/rum-light-download)
 
 或用手机扫描二维码打开安装页面
 
-{二维码}
+![](.gitbook/assets/image.png)
 {% endtab %}
 
 {% tab title="电脑用户" %}
 点击以下链接，下载相应系统的全节点 Rum 应用：
 
-1. Windows 安装包，支持 Windows 7.0 及以上版本
-2. MacOS 安装包
-3. Linux 安装包
+1. Windows [安装包](https://static-assets.xue.cn/rum-testing/RUM-3.3.27.exe)，支持 Windows 7.0 及以上版本
+2. MacOS [安装包](https://static-assets.xue.cn/rum-testing/RUM-3.3.27.dmg)
+3. Linux [安装包](https://static-assets.xue.cn/rum-testing/RUM-3.3.27.linux.AppImage)
 {% endtab %}
 {% endtabs %}
 
