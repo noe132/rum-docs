@@ -10,6 +10,8 @@
 
 安装好 docker 和 docker-compose 后，在合适的位置新建一个文件夹。下面以 `~/port` 为例子。
 
+请注意，按照英文版教程安装的 docker compose 属于 docker 插件，输入命令 `docker compose` 执行，而不是 `docker-compose`。
+
 #### 创建 docker-compose.yml
 
 创建一个 `docker-compose.yml` 文件，保存在 `~/port/docker-compose.yml`，输入下面的内容
@@ -53,6 +55,8 @@ volumes:
 {% endcode %}
 
 第 7 行的端口号 35572 是服务最终在主机上监听的端口，根据需要可以修改为其他端口。
+
+第 8 行的 `POSTGRES_PASSWORD` 请自行修改成更安全的密码。
 
 #### 创建 router.nginx.conf
 
@@ -120,6 +124,7 @@ http {
 
 创建一个 `config.yml` 文件，保存在 `~/port/config.yml`，输入下面的内容
 
+{% code lineNumbers="true" %}
 ```yaml
 # database connection configuration
 db:
@@ -145,6 +150,11 @@ admin:
 joinBySeedUrl: false
 
 ```
+{% endcode %}
+
+请注意第 7 行的 `password` 需要跟 `docker-compose.yml` 中的 `POSTGRES_PASSWORD` 保持一致。
+
+####
 
 #### 运行
 
