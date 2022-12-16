@@ -122,7 +122,7 @@ http {
 
 #### 创建 config.yml
 
-创建一个 `config.yml` 文件，保存在 `~/port/config.yml`，输入下面的内容
+创建一个 `config.yml` 文件，保存在 `~/port/config.yml`，输入下面的内容：
 
 {% code lineNumbers="true" %}
 ```yaml
@@ -154,7 +154,7 @@ joinBySeedUrl: false
 
 请注意第 7 行的 `password` 需要跟 `docker-compose.yml` 中的 `POSTGRES_PASSWORD` 保持一致。
 
-####
+`config.yml` 文件用于配置 Port 的运行参数。其中 admin 需要填入
 
 #### 运行
 
