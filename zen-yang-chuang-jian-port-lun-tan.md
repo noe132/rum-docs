@@ -20,7 +20,7 @@ version: "3.7"
 
 services:
   router:
-    image: dockerhub.qingcloud.com/pressone/nft-bbs-router:latest
+    image: noe132/port-router:latest
     ports:
       - "${PORT:-35572}:80"
     volumes:
@@ -29,7 +29,7 @@ services:
       - server
 
   server:
-    image: dockerhub.qingcloud.com/pressone/nft-bbs-server:latest
+    image: noe132/port-server:latest
     volumes:
       - './config.yml:/app/packages/server/config.yml'
     environment:
