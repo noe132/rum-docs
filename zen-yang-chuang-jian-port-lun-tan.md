@@ -14,151 +14,78 @@
 
 #### 创建 docker-compose.yml
 
-创建一个 `docker-compose.yml` 文件，保存在 `~/port/docker-compose.yml`，输入下面的内容
+创建一个 [`docker-compose.yml`](https://github.com/rumsystem/nft-bbs/blob/main/docker-compose.yml) 文件，保存在 `~/port/docker-compose.yml`，输入下面的内容
 
 {% code lineNumbers="true" %}
 ```yaml
-version: "3.7"
-
 services:
   router:
     image: noe132/port-router:latest
     ports:
       - "${PORT:-35572}:80"
-    volumes:
-      - './router.nginx.conf:/etc/nginx/nginx.conf'
+    environment:
+      PORT_SERVER_HOST: 'server'
     depends_on:
       - server
 
   server:
     image: noe132/port-server:latest
     volumes:
-      - './config.yml:/app/packages/server/config.yml'
+      - './config.yml:/app/packages/server/config.yml:ro'
     environment:
-      PORT: 80
+      DB_HOST: 'postgres'
+      DB_PORT: 5432
+      DB_USER: 'postgres'
+      DB_PASSWORD: 'e72a7e3456874163b3b715297be8a731'
+      DB_DATABASE: 'port'
     depends_on:
       - postgres
 
   postgres:
     image: "postgres:14-alpine"
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: e72a7e3456874163b3b715297be8a731
-      POSTGRES_DB: port
+      POSTGRES_USER: 'postgres'
+      POSTGRES_PASSWORD: 'e72a7e3456874163b3b715297be8a731'
+      POSTGRES_DB: 'port'
     volumes:
       - 'postgres-data:/var/lib/postgresql/data'
 
 volumes:
   postgres-data:
-
 ```
 {% endcode %}
 
-第 7 行的端口号 35572 是服务最终在主机上监听的端口，根据需要可以修改为其他端口。
+第 5 行的端口号 35572 是服务最终在主机上监听的端口，根据需要可以修改为其他端口。另外也可以修改环境变量 `PORT` 修改端口。
 
-第 8 行的 `POSTGRES_PASSWORD` 请自行修改成更安全的密码。
+第 19 行的 `DB_PASSWORD` 和 28 行的 `POSTGRES_PASSWORD` 请自行修改成更安全的密码。
 
-#### 创建 router.nginx.conf
+#### 修改自定义配置：创建 config.yml
 
-创建一个 `router.nginx.conf`，保存在 `~/port/router.nginx.conf`，输入下面的内容
+如果需要修改一些参数选项，需要创建一个 `config.yml` 文件并挂载到 `server` 容器的 `/app/packages/server/config.yml` 位置。配置文件的所有选项和默认值在 [https://github.com/rumsystem/nft-bbs/blob/main/packages/server/config.sample.yml](https://github.com/rumsystem/nft-bbs/blob/main/packages/server/config.sample.yml) 可以看到。所有的选项都是可选的。
 
-```nginx
-user  nginx;
-worker_processes  auto;
-
-error_log  /var/log/nginx/error.log notice;
-pid        /var/run/nginx.pid;
-
-events {
-    worker_connections  1024;
-}
-
-http {
-    include       /etc/nginx/mime.types;
-    default_type  application/octet-stream;
-
-    log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
-                      '$status $body_bytes_sent "$http_referer" '
-                      '"$http_user_agent" "$http_x_forwarded_for"';
-
-    access_log  /var/log/nginx/access.log  main;
-    sendfile        on;
-    keepalive_timeout  65;
-
-    upstream portserver {
-        server server:80;
-    }
-
-    server {
-        listen 80 default_server;
-        listen [::]:80 default_server;
-
-        location / {
-            root   /usr/share/nginx/html;
-            try_files $uri $uri/ /index.html =404;
-        }
-
-        location /api {
-            proxy_pass http://portserver;
-        }
-
-        location /socket.io/ {
-            proxy_pass http://portserver;
-            proxy_http_version 1.1;
-            proxy_set_header Upgrade $http_upgrade;
-            proxy_set_header Connection "Upgrade";
-            proxy_set_header Host $host;
-        }
-
-        error_page   500 502 503 504  /50x.html;
-        location = /50x.html {
-            root   /usr/share/nginx/html;
-        }
-    }
-
-    include /etc/nginx/conf.d/*.conf;
-}
-```
-
-#### 创建 config.yml
-
-创建一个 `config.yml` 文件，保存在 `~/port/config.yml`，输入下面的内容：
+根据上面的 `docker-compose.yml` 配置，创建一个 `config.yml` 文件，保存在 `~/port/config.yml`，输入下面的内容：
 
 {% code lineNumbers="true" %}
 ```yaml
-# database connection configuration
-db:
-  host: postgres
-  port: 5432
-  database: port
-  user: postgres
-  password: 'e72a7e3456874163b3b715297be8a731'
-  dialect: postgres
-
-# default login configuration
+# 默认的登录选项
 defaultGroup:
-  mixin: true
-  keystore: true
-  anonymous: true
-  metamask: true
+  mixin: true # 允许 Mixin 扫码登录
+  keystore: true # 允许输入 Keystore 登录
+  anonymous: true # 允许 游客模式
+  metamask: true # 允许 Metamask 登录
 
-# admin user eth addresses
+# 管理员用户的 eth 地址
 admin:
   - '0xffffffffffffffffffffffffffffffffffffffff'
 
-# allow user add group by seedUrl
+# 允许用户手动输入种子网络 SeedUrl 添加新的论坛
 joinBySeedUrl: false
-
 ```
 {% endcode %}
 
-请注意第 7 行的 `password` 需要跟 `docker-compose.yml` 中的 `POSTGRES_PASSWORD` 保持一致。
-
-`config.yml` 文件用于配置 Port 的运行参数。其中 admin 需要填入
-
 #### 运行
 
-保存完上面的3个文件后，使用 docker-compose 启动服务
+保存完上面的文件后，使用 docker-compose 启动服务
 
 ```shell
 cd ~/port
@@ -183,5 +110,3 @@ docker-compose ps
 如果不方便使用 docker，你也可以手动编译运行。你需要自己安装 nodejs / yarn / nginx / postgres 等需要的软件并配置相关的反向代理。
 
 参考 [https://github.com/rumsystem/nft-bbs#readme](https://github.com/rumsystem/nft-bbs#readme)
-
-和上面步骤的 nginx.conf
